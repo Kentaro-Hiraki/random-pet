@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <style>
+    img {
+      width: 500px;
+    }
+  </style>
+  <div>あなたにおすすめのペットを提案します。</div>
+  <button onclick="searchPet()">検索</button>
+  <div>
+    <img id="petImg">
+  </div>
+  <script>
+    const searchPet = async function () {
+      const dog = await axios.get("https://dog.ceo/api/breeds/image/random");
+      const petImg = document.getElementById('petImg');
+      petImg.src = dog.data.message;
+
+    }
+
+  </script>
+</body>
+
+</html>
